@@ -36,14 +36,14 @@ def Crypto_inf_to(hash,value)
 	keymax = String.new
 	puts "Les devises inférieures à #{value} dollars:"
 	keys.length.times do |i|
-		if( hash[keys[i]].delete('$').to_i < 6000)then
+		if( hash[keys[i]].delete('$').to_i < value)then
 			#pour obtenir la valeur max
 			if( hash[keys[i]].delete('$').to_i >max )then
 			max = hash[keys[i]].delete('$').to_i
 			keymax = keys[i]
 			end
 			print ">  "
-			puts keys[i]
+			puts "#{keys[i]} : #{hash[keys[i]]}"
 		end
 	end
 	puts "Devises la plus cher parmis celle inférieure à #{value} dollars: #{keymax} "
@@ -63,6 +63,6 @@ def perform
 	biggest_hash_values(hash ,3)
 	smallest_hash_values(hash,3)
 	Nb_of_coin hash.keys
-	Crypto_inf_to(hash,6000)
+	Crypto_inf_to(hash,600)
 end
 perform
