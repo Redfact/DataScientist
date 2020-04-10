@@ -1,7 +1,7 @@
 #creer un hash table avec autant de d'élément qu'il y a de clé à insérer
 #si il y a plus de valeur que de clé , ces valeurs ne seront pas insérées
 def biggest_hash_values (hash , nb_values)
-		big_values =hash.values.sort_by {|s| s.scan(/\d+/).first.to_i }.reverse
+		big_values =hash.values.sort_by {|s| s.scan(/[\d.]+/).first.to_f }.reverse
 		puts "Voici les plus plus grandes valeurs :"
 		for i in 0..nb_values-1 do
 			print ">  "
@@ -12,7 +12,7 @@ end
 #sort_by {|s| s.scan(/\d+/).first.to_i }  trie les string s
 #s.scan(/\d+/).first.to_i recupère le premier chiffre contenu dans s
 def smallest_hash_values (hash , nb_values)
-		big_values =hash.values.sort_by {|s|  }
+		big_values =hash.values.sort_by {|s| s.scan(/[\d.]+/).first.to_f }
 		puts "Voici les plus petites valeurs :"
 		for i in 0..nb_values-1 do
 			print ">  "
@@ -24,7 +24,7 @@ def Nb_of_coin array
 	res =0
 
 	array.length.times do |i|
-		if( array[i].include?("coin"))then
+		if( array[i].downcase.include?("coin"))then
 			res+=1
 		end
 	end
@@ -44,8 +44,8 @@ def Crypto_inf_to(hash,value)
 			max = hash[keys[i]].delete('$').to_i
 			keymax = keys[i]
 			end
-			print ">  "
-			puts "#{keys[i]} : #{hash[keys[i]]}"
+			#print ">  "
+			#puts "#{keys[i]} : #{hash[keys[i]]}"
 		end
 	end
 	puts "Devises la plus cher parmis celle inférieure à #{value} dollars: #{keymax} "
