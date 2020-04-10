@@ -9,8 +9,10 @@ def biggest_hash_values (hash , nb_values)
 		end
 end
 
+#sort_by {|s| s.scan(/\d+/).first.to_i }  trie les string s
+#s.scan(/\d+/).first.to_i recupère le premier chiffre contenu dans s
 def smallest_hash_values (hash , nb_values)
-		big_values =hash.values.sort_by {|s| s.scan(/\d+/).first.to_i }
+		big_values =hash.values.sort_by {|s|  }
 		puts "Voici les plus petites valeurs :"
 		for i in 0..nb_values-1 do
 			print ">  "
@@ -63,6 +65,6 @@ def perform
 	biggest_hash_values(hash ,3)
 	smallest_hash_values(hash,3)
 	Nb_of_coin hash.keys
-	Crypto_inf_to(hash,600)
+	Crypto_inf_to(hash,6000)
 end
 perform
